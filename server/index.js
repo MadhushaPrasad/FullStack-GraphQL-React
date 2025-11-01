@@ -103,6 +103,11 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 8000 },
+  context: async () => ({}),
+  cors: {
+    origin: 'http://localhost:5173',
+    credentials: true,
+  },
 })
 
 console.log(`🚀 Server ready at ${url}`)
